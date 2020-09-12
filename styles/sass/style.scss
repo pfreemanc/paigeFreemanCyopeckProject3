@@ -1,0 +1,92 @@
+@import "setup.scss";
+
+//font variables
+$white: #fff;
+$main-font: 'Montserrat', sans-serif;
+
+html {
+  font-size: 62.5%;
+  font-family: $main-font;
+}
+
+body {
+  background-image: linear-gradient(to bottom, #a2c0ec, #acc0e8, #b4bfe3, #bbc0df, #c0c0da);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+header {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  color: $white;
+}
+
+h1 {
+  margin: 0;
+  color: $white;
+  font-size: 6rem;
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.headerFlexContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  // TODO: figure out how to make fixed and scroll nicely
+  h1 {
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px 0;
+    text-align: center;
+  }
+  .container {
+    width: calc(100% / 2 - 40px);
+    font-size: 2rem;
+    margin-top: 100px;
+    border: 1px solid #fff;
+    padding: 20px;
+    ul {
+      padding-left: 20px;
+    }
+  }
+}
+
+//main section
+main {
+  height: 100vh;
+}
+//styles for the type selectors, using correct pokemon colours
+
+.typeSelector {
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 200px 0;
+  li {
+    width: calc(90% / 5 - 20px);
+    text-align: center;
+    button {
+      padding: 10px 0;
+      width: 100%;
+      color: $white;
+      border: 1px solid white;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
