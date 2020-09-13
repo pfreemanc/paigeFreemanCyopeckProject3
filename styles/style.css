@@ -309,30 +309,68 @@ main {
   height: 100vh;
 }
 
+main .container {
+  padding: 50px 0;
+}
+
+main .container h2 {
+  font-size: 6rem;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+main .container h3 {
+  font-size: 3rem;
+}
+
 .typeSelector {
   font-size: 2rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  gap: 40px;
+  padding: 200px 0;
+}
+
+.typeSelector button {
+  padding: 10px 0;
+  width: 100%;
+  color: #fff;
+  border: none;
+}
+
+.typeSelector button:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.listPostChoice {
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.listPostChoice .listUserChoice {
+  grid-column: span 4;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 200px 0;
 }
 
-.typeSelector li {
-  width: calc(90% / 5 - 20px);
-  text-align: center;
+.listPostChoice .listUserChoice button {
+  width: 75%;
 }
 
-.typeSelector li button {
-  padding: 10px 0;
+.listPostChoice .listTypeMultiplier {
   width: 100%;
-  color: #fff;
-  border: 1px solid white;
+  background: rgba(255, 255, 255, 0.2);
 }
 
-.typeSelector li button:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+.listPostChoice .listTypeMultiplier div {
+  padding: 20px;
 }

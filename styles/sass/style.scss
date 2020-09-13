@@ -46,6 +46,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
   // TODO: figure out how to make fixed and scroll nicely
   h1 {
     width: 80%;
@@ -68,25 +69,55 @@ h1 {
 //main section
 main {
   height: 100vh;
+  .container {
+    padding: 50px 0;
+    h2 {
+      font-size: 6rem;
+      width: 80%;
+      margin: 0 auto;
+      text-align: center;
+    }
+    h3 {
+      font-size: 3rem;
+    }
+
+  }
 }
 //styles for the type selectors, using correct pokemon colours
 
 .typeSelector {
   font-size: 2rem;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 40px;
   padding: 200px 0;
-  li {
-    width: calc(90% / 5 - 20px);
-    text-align: center;
-    button {
+  button {
       padding: 10px 0;
       width: 100%;
       color: $white;
-      border: 1px solid white;
+      border: none;
       &:hover {
         transform: scale(1.2);
       }
+    }
+}
+
+.listPostChoice {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  .listUserChoice {
+    grid-column: span 4;
+    display: flex;
+    justify-content: space-between;
+    button {
+      width: 75%;
+    }
+  }
+  .listTypeMultiplier {
+    width: 100%;
+    background: rgba(255,255,255,0.2);
+    div {
+      padding: 20px;
     }
   }
 }
