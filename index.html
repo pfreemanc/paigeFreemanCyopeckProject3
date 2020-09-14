@@ -30,6 +30,12 @@
     <div class="container wrapper">
       <h2>Choose your type!</h2>
       <h3>Determines what your selected type is weak against. Shows all multipliers.</h3>
+      <form>
+        <input type="radio" id="radio1" name="typeCheck" checked>
+        <label for="radio">Show all matchups</label>
+        <input type="radio" id="radio2" name="typeCheck">
+        <label for="radio2">Show only matchups other than 1x</label>
+      </form>
       <ul class="typeSelector">
         <!-- dynamically add li's with types with JS -->
       </ul>

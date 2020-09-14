@@ -15,7 +15,9 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+p,
+ul {
   margin: 0;
 }
 
@@ -90,7 +92,7 @@ main {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 40px;
-  padding: 200px 0;
+  padding: 50px 0;
   button {
       padding: 10px 0;
       width: 100%;
@@ -98,26 +100,47 @@ main {
       border: none;
       &:hover {
         transform: scale(1.2);
+        transition: all 0.5s;
       }
     }
 }
 
 .listPostChoice {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 40px;
   .listUserChoice {
-    grid-column: span 4;
+    grid-column: span 5;
     display: flex;
     justify-content: space-between;
     button {
-      width: 75%;
+      width: 50%;
+      margin: 0 auto;
+      padding: 20px 0;
     }
   }
   .listTypeMultiplier {
     width: 100%;
     background: rgba(255,255,255,0.2);
+    box-shadow: 10px 10px 5px rgba(68, 66, 66, .4);
+    p {
+      margin: 10px 0;
+    }
+    p:last-child {
+      text-align: center; 
+      border: 1px solid white;
+      padding: 10px 0;
+    }
+    &:hover {
+      transform: scale(1.1);
+      transition: all .6s;
+      box-shadow: 12px 12px 5px rgba(68, 66, 66, .4);
+    }
     div {
       padding: 20px;
+      
     }
+  }
+  button:hover {
+    transform: none;
   }
 }
