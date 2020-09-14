@@ -388,11 +388,13 @@ pokemonApp.pokemonTypeColors = {
   fairy: "#EE99AC",
 };
 
+// init function that calls the important functions needed.
 pokemonApp.init = function () {
   pokemonApp.displayCurrentTypes();
   pokemonApp.generateTypes();
   // event listener for when the user selects their type choice.
   $(".type").on("click", function () {
+    // storing the value of the radio value. radio1 is checked by default. storing that. if returns off, then change the variable to have a false value.
     pokemonApp.radioVal = $('#radio1:checked').val();
     if(pokemonApp.radioVal === 'on') {
       pokemonApp.radioVal = true;
@@ -412,8 +414,6 @@ pokemonApp.init = function () {
     pokemonApp.showInfo(selectedClass);
   });
 };
-
-// checks the radio value and calls the 
 
 // function that displays the current supported types that the user can select.
 pokemonApp.displayCurrentTypes = function () {
@@ -452,6 +452,15 @@ pokemonApp.showInfo = function (type) {
   pokemonApp.multiplierCalculator(type, pokemonApp);
 };
 
+// sorting the list to show the information with the super effective type multipliers first. As well as hiding the elements that have the toRemove class.
+pokemonApp.sortList = function() {
+  $('.noDamage').prependTo('.listPostChoice')
+  $('.littleDamage').prependTo('.listPostChoice');
+  $('.mostDamage').prependTo('.listPostChoice');
+  $('.listUserChoice').prependTo('.listPostChoice');
+  $(".listTypeMultiplier.toRemove").hide();
+};
+
 pokemonApp.multiplierCalculator = function (type, boolean) {
   //create a loop that runs through the type mutlipliers for the selected user type
   for (let multiplier in pokemonApp.pokemonTypes[type]) {
@@ -465,36 +474,33 @@ pokemonApp.multiplierCalculator = function (type, boolean) {
       `${pokemonApp.pokemonTypes[type][multiplier]}x damage against ${type} type`
     );
     // conditional statement to determine the effectiveness of the type, adding splash text based on that.
+    // adding classes as well in order to make sorting the list easier.
     const splashText = $("<p>");
-
-    // condense, create another else if for elseif === 1 && has class toremove. only one conditional statement.
-    if(pokemonApp.radioVal) {
-      if (pokemonApp.pokemonTypes[type][multiplier] === 0) {
-        $(splashText).text("No effect!");
-      } else if (pokemonApp.pokemonTypes[type][multiplier] === 0.5) {
-        $(splashText).text("It's not very effective!");
-      } else if (pokemonApp.pokemonTypes[type][multiplier] === 2) {
-        $(splashText).text("It's super effective!");
-      } else {
+    if (pokemonApp.pokemonTypes[type][multiplier] === 0) {
+      $(splashText).text("No effect!");
+      $(listItem).addClass('noDamage')
+    } else if (pokemonApp.pokemonTypes[type][multiplier] === 0.5) {
+      $(splashText).text("It's not very effective!");
+      $(listItem).addClass('littleDamage')
+    } else if (pokemonApp.pokemonTypes[type][multiplier] === 2) {
+      $(splashText).text("It's super effective!");
+      $(listItem).addClass('mostDamage')
+    } else {
+      // if radioVal returns true, user wants all type responses. 
+      if(pokemonApp.radioVal) {
         $(splashText).text("Regular damage!");
       }
-    } else {
-      if (pokemonApp.pokemonTypes[type][multiplier] === 0) {
-        $(splashText).text("No effect!");
-      } else if (pokemonApp.pokemonTypes[type][multiplier] === 0.5) {
-        $(splashText).text("It's not very effective!");
-      } else if (pokemonApp.pokemonTypes[type][multiplier] === 2) {
-        $(splashText).text("It's super effective!");
-      } else {
-        $(listItem).addClass("toRemove");
+      // adding a class toRemove in order to easily hide those list items during the sortList function.
+      else {
+        $(listItem).addClass('toRemove');
       }
     }
-    $(listItem).append($(container).append(multiplierItem).append(splashText));
     // appending the container to the list item as well as adding the dynamically generated content to the container.
+    $(listItem).append($(container).append(multiplierItem).append(splashText));
     //final step: adding to listItem.
-    $(".typeSelector").append(listItem);
-    $(".listTypeMultiplier.toRemove").hide();
+    $(".listPostChoice").append(listItem);
   }
+  pokemonApp.sortList();
 };
 
 // Doc ready TODO remove this comment
