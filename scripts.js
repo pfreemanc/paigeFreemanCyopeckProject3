@@ -389,12 +389,11 @@ pokemonApp.pokemonTypeColors = {
 };
 
 // init function that calls the important functions needed.
-pokemonApp.init = function () {0
+pokemonApp.init = function () {
+  0;
   pokemonApp.displayCurrentTypes();
   pokemonApp.generateTypes();
-  // event listener for when the user selects their type choice.
-  // function that kicks off the display of the type information based on the user choice.
-  // smooth scroll, foudn this code.
+  // smooth scroll, foudn this code on https://stackoverflow.com/questions/6677035/jquery-scroll-to-element
   $(".btnGetStarted").click(function () {
     $("html, body").animate(
       {
@@ -403,6 +402,9 @@ pokemonApp.init = function () {0
       2000
     );
   });
+
+  // function that kicks off the display of the type information based on the user choice.
+  // event listener for when the user selects their type choice.
   $(".type").on("click", function () {
     // storing the value of the radio value. radio1 is checked by default. storing that. if returns off, then change the variable to have a false value.
     pokemonApp.radioVal = $("#radio1:checked").val();
@@ -464,7 +466,7 @@ pokemonApp.createButton = function (type) {
   return button;
 };
 
-// Is called early, this generates the userCHoice information and calls the multiplier calculator. 
+// Is called early, this generates the userCHoice information and calls the multiplier calculator.
 pokemonApp.showInfo = function (type) {
   const userChoice = $("<li>").addClass("listUserChoice");
   userChoice.append(pokemonApp.createButton(type));

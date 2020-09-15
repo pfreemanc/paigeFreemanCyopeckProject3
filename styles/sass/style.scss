@@ -222,6 +222,22 @@ main {
   }
 }
 
+footer {
+  background-color: #e5e5e5;
+  color: #14213d;
+  padding: 20px 0;
+  font-size: 2rem;
+  text-align: center;
+  a{
+    text-decoration: none;
+    color: #ff4133;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// beginning of media queries
 @media (max-width: 1200px) {
   .listPostChoice {
     grid-template-columns: repeat(4, 1fr);
@@ -299,6 +315,7 @@ main {
   .listPostChoice .listUserChoice button {
     width: 100%;
   }
+
   main .container {
     h2 {
       font-size: 4rem;
@@ -326,4 +343,11 @@ main {
       grid-column: span 1;
     }
   }
+  footer {
+    font-size: 1.6rem;
+    padding: 10px 0;
+  }
+
 }
+
+
