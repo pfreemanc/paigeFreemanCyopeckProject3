@@ -299,11 +299,20 @@ h2 {
 .headerFlexContainer h1 {
   width: 80%;
   margin: 0 auto;
-  padding: 50px 0;
+  padding-top: 50px;
+  padding-bottom: 20px;
   text-align: center;
   font-family: "Domine", serif;
   letter-spacing: 5px;
   line-height: 80px;
+}
+
+.headerFlexContainer .subHeader {
+  font-size: 2.4rem;
+  color: #14213d;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .headerFlexContainer .container {
@@ -394,7 +403,9 @@ main .container form {
 }
 
 main .container .btnStartOver {
-  width: 20%;
+  width: 30%;
+  display: block;
+  margin: 0 auto;
   background-color: #14213d;
   color: #e5e5e5;
 }

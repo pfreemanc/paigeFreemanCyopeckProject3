@@ -393,16 +393,26 @@ pokemonApp.init = function () {
   pokemonApp.displayCurrentTypes();
   pokemonApp.generateTypes();
   // event listener for when the user selects their type choice.
+  // function that kicks off the display of the type information based on the user choice.
+  // smooth scroll, foudn this code.
+  $(".btnGetStarted").click(function () {
+    $("html, body").animate(
+      {
+        scrollTop: $(".typeSelector").offset().top,
+      },
+      2000
+    );
+  });
   $(".type").on("click", function () {
     // storing the value of the radio value. radio1 is checked by default. storing that. if returns off, then change the variable to have a false value.
-    pokemonApp.radioVal = $('#radio1:checked').val();
-    if(pokemonApp.radioVal === 'on') {
+    pokemonApp.radioVal = $("#radio1:checked").val();
+    if (pokemonApp.radioVal === "on") {
       pokemonApp.radioVal = true;
     } else {
       pokemonApp.radioVal = false;
     }
     // changes h2, removes h3 dynamically.
-    $("h2").text("You Chose....");
+    $("#headingTextChange").text("You Chose....");
     $("h3").empty();
     $("form").empty();
     // save user selection
@@ -414,17 +424,16 @@ pokemonApp.init = function () {
     pokemonApp.showInfo(selectedClass);
     pokemonApp.genStartOverBtn();
     // reloads the page on click
-    $('.btnStartOver').on("click", function() {
+    $(".btnStartOver").on("click", function () {
       location.reload();
     });
   });
-
 };
 
-pokemonApp.genStartOverBtn = function() {
-  const button = $('<button>').addClass('btnStartOver').text('Start Over?')
-  $('main .container').append(button)
-}
+pokemonApp.genStartOverBtn = function () {
+  const button = $("<button>").addClass("btnStartOver").text("Start Over?");
+  $("main .container").append(button);
+};
 // function that displays the current supported types that the user can select.
 pokemonApp.displayCurrentTypes = function () {
   for (let type in pokemonApp.pokemonTypes) {
@@ -457,17 +466,17 @@ pokemonApp.createButton = function (type) {
 // Function that wil call the multiplierCalculator. Also generates the user choice information.
 pokemonApp.showInfo = function (type) {
   const userChoice = $("<li>").addClass("listUserChoice");
-  userChoice.append(pokemonApp.createButton(type))
+  userChoice.append(pokemonApp.createButton(type));
   $(".typeSelector").append(userChoice);
   pokemonApp.multiplierCalculator(type, pokemonApp);
 };
 
 // sorting the list to show the information with the super effective type multipliers first. As well as hiding the elements that have the toRemove class.
-pokemonApp.sortList = function() {
-  $('.noDamage').prependTo('.listPostChoice')
-  $('.littleDamage').prependTo('.listPostChoice');
-  $('.mostDamage').prependTo('.listPostChoice');
-  $('.listUserChoice').prependTo('.listPostChoice');
+pokemonApp.sortList = function () {
+  $(".noDamage").prependTo(".listPostChoice");
+  $(".littleDamage").prependTo(".listPostChoice");
+  $(".mostDamage").prependTo(".listPostChoice");
+  $(".listUserChoice").prependTo(".listPostChoice");
   $(".listTypeMultiplier.toRemove").hide();
 };
 
@@ -488,21 +497,21 @@ pokemonApp.multiplierCalculator = function (type, boolean) {
     const splashText = $("<p>");
     if (pokemonApp.pokemonTypes[type][multiplier] === 0) {
       $(splashText).text("No effect!");
-      $(listItem).addClass('noDamage')
+      $(listItem).addClass("noDamage");
     } else if (pokemonApp.pokemonTypes[type][multiplier] === 0.5) {
       $(splashText).text("It's not very effective!");
-      $(listItem).addClass('littleDamage')
+      $(listItem).addClass("littleDamage");
     } else if (pokemonApp.pokemonTypes[type][multiplier] === 2) {
       $(splashText).text("It's super effective!");
-      $(listItem).addClass('mostDamage')
+      $(listItem).addClass("mostDamage");
     } else {
-      // if radioVal returns true, user wants all type responses. 
-      if(pokemonApp.radioVal) {
+      // if radioVal returns true, user wants all type responses.
+      if (pokemonApp.radioVal) {
         $(splashText).text("Regular damage!");
       }
       // adding a class toRemove in order to easily hide those list items during the sortList function.
       else {
-        $(listItem).addClass('toRemove');
+        $(listItem).addClass("toRemove");
       }
     }
     // appending the container to the list item as well as adding the dynamically generated content to the container.
@@ -515,16 +524,5 @@ pokemonApp.multiplierCalculator = function (type, boolean) {
 
 // Doc ready TODO remove this comment
 $(function () {
-  // adding all current types to the list in the ul
   pokemonApp.init();
-  // function that kicks off the display of the type information based on the user choice.
-  //smooth scroll, foudn this code.
-  $(".btnGetStarted").click(function () {
-    $("html, body").animate(
-      {
-        scrollTop: $(".typeSelector").offset().top,
-      },
-      2000
-    );
-  });
 });
