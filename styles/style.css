@@ -360,7 +360,7 @@ button {
   transition: all 0.5s;
 }
 
-button:hover {
+button:hover, button:focus {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
@@ -423,7 +423,7 @@ main .container .btnStartOver {
   color: #fff;
 }
 
-.typeSelector button:hover {
+.typeSelector button:hover, .typeSelector button:focus {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
   -webkit-transition: all 0.5s;
@@ -479,7 +479,7 @@ main .container .btnStartOver {
   padding: 10px 0;
 }
 
-.listPostChoice .listTypeMultiplier:hover {
+.listPostChoice .listTypeMultiplier:hover, .listPostChoice .listTypeMultiplier:focus {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
   -webkit-box-shadow: 12px 12px 5px rgba(68, 66, 66, 0.4);
@@ -490,7 +490,8 @@ main .container .btnStartOver {
   padding: 20px;
 }
 
-.listPostChoice button:hover {
+.listPostChoice button:hover,
+.listPostChoice button:focus {
   -webkit-transform: none;
           transform: none;
 }
@@ -508,7 +509,7 @@ footer a {
   color: #ff4133;
 }
 
-footer a:hover {
+footer a:hover, footer a:focus {
   text-decoration: underline;
 }
 

@@ -117,7 +117,8 @@ button {
   width: 100%;
   border: none;
   transition: all 0.5s;
-  &:hover {
+  &:hover,
+  &:focus {
     transform: scale(1.1);
   }
 }
@@ -170,7 +171,8 @@ main {
   padding: 50px 0;
   button {
     color: $white;
-    &:hover {
+    &:hover,
+    &:focus {
       transform: scale(1.2);
       transition: all 0.5s;
     }
@@ -209,7 +211,8 @@ main {
       border: 2px solid darkgrey;
       padding: 10px 0;
     }
-    &:hover {
+    &:hover,
+    &:focus {
       transform: scale(1.1);
       box-shadow: 12px 12px 5px rgba(68, 66, 66, 0.4);
     }
@@ -217,7 +220,8 @@ main {
       padding: 20px;
     }
   }
-  button:hover {
+  button:hover,
+  button:focus {
     transform: none;
   }
 }
@@ -231,7 +235,8 @@ footer {
   a{
     text-decoration: none;
     color: #ff4133;
-    &:hover {
+    &:hover,
+    &:focus {
       text-decoration: underline;
     }
   }
