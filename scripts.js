@@ -412,9 +412,19 @@ pokemonApp.init = function () {
     // emptying the list in order to populate information successfully.
     $(".typeSelector").empty().addClass("listPostChoice");
     pokemonApp.showInfo(selectedClass);
+    pokemonApp.genStartOverBtn();
+    // reloads the page on click
+    $('.btnStartOver').on("click", function() {
+      location.reload();
+    });
   });
+
 };
 
+pokemonApp.genStartOverBtn = function() {
+  const button = $('<button>').addClass('btnStartOver').text('Start Over?')
+  $('main .container').append(button)
+}
 // function that displays the current supported types that the user can select.
 pokemonApp.displayCurrentTypes = function () {
   for (let type in pokemonApp.pokemonTypes) {
@@ -447,7 +457,7 @@ pokemonApp.createButton = function (type) {
 // Function that wil call the multiplierCalculator. Also generates the user choice information.
 pokemonApp.showInfo = function (type) {
   const userChoice = $("<li>").addClass("listUserChoice");
-  userChoice.append(pokemonApp.createButton(type));
+  userChoice.append(pokemonApp.createButton(type))
   $(".typeSelector").append(userChoice);
   pokemonApp.multiplierCalculator(type, pokemonApp);
 };
@@ -469,7 +479,7 @@ pokemonApp.multiplierCalculator = function (type, boolean) {
     const container = $("<div>");
     // generate the icon/button that shows the types.
     listItem.append(pokemonApp.createButton(multiplier));
-    //generate the multiplier text information box.
+    // generate the multiplier text information box.
     const multiplierItem = $("<p>").text(
       `${pokemonApp.pokemonTypes[type][multiplier]}x damage against ${type} type`
     );
