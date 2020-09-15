@@ -316,14 +316,14 @@ h2 {
 }
 
 .headerFlexContainer .container {
-  background: rgba(128, 123, 123, 0.6);
+  background: rgba(128, 123, 123, 0.8);
   color: #e6e6e6;
   width: calc(100% / 2 - 40px);
   font-size: 2rem;
   margin-top: 100px;
   padding: 50px;
-  -webkit-box-shadow: 10px 10px 5px #b1adad;
-          box-shadow: 10px 10px 5px #b1adad;
+  -webkit-box-shadow: 20px 20px 10px rgba(20, 33, 61, 0.7);
+          box-shadow: 20px 20px 10px rgba(20, 33, 61, 0.7);
 }
 
 .headerFlexContainer .container ul {
@@ -388,10 +388,12 @@ main .container h2 {
   width: 80%;
   margin: 0 auto;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 main .container h3 {
   font-size: 3rem;
+  text-align: center;
 }
 
 main .container form {
@@ -400,6 +402,11 @@ main .container form {
   text-align: center;
   padding: 10px 0;
   font-size: 1.8rem;
+}
+
+main .container form fieldset {
+  border: none;
+  display: inline-block;
 }
 
 main .container .btnStartOver {

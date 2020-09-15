@@ -78,13 +78,13 @@ h2 {
       text-align: center;
   }
   .container {
-    background: rgba(128, 123, 123, 0.6);
+    background: rgba(128, 123, 123, 0.8);
     color: #e6e6e6;
     width: calc(100% / 2 - 40px);
     font-size: 2rem;
     margin-top: 100px;
     padding: 50px;
-    box-shadow: 10px 10px 5px rgb(177, 173, 173);
+    box-shadow: 20px 20px 10px rgba(20, 33, 61, 0.7);
     ul {
       padding: 10px 0 10px 20px;
       list-style: disc;
@@ -98,7 +98,7 @@ h2 {
     button {
       width: 70%;
       padding: 20px 0;
-      background-color: #14213d;
+      background-color: rgb(20, 33, 61);
       color: #e6e6e6;
     }
   }
@@ -131,9 +131,11 @@ main {
       width: 80%;
       margin: 0 auto;
       text-align: center;
+      margin-bottom: 20px;
     }
     h3 {
       font-size: 3rem;
+      text-align: center;
     }
     form {
       margin: 0 auto;
@@ -141,6 +143,10 @@ main {
       text-align: center;
       padding: 10px 0;
       font-size: 1.8rem;
+      fieldset {
+          border: none;
+          display: inline-block;
+      }
     }
     .btnStartOver {
       width: 30%;
