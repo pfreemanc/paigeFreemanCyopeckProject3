@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&family=Roboto&display=swap" rel="stylesheet"> 
 </head>
 <body>
+  <!-- Header. Has some information as well as a get started button. Empty UL for dynamically added content with jQuery. -->
   <header>
     <div class="wrapper headerFlexContainer">
       <h1>How Strong is your Pokemon?</h1>
@@ -17,7 +18,7 @@
       <div class="container">
         <h2>Currently Supported: </h2>
         <ul class="listCurrentlySupported">
-          <!-- Supported Types Added Here -->
+          <!-- Support types added here with jQuery -->
         </ul>
       </div>
   
@@ -28,10 +29,12 @@
       </div>
     </div>
   </header>
+
   <main>
     <div class="container wrapper">
       <h2 id="headingTextChange">Choose your type!</h2>
       <h3>Determines what your selected type is weak against. Shows all multipliers.</h3>
+      <!-- Allows user to choose how they want their information received. -->
       <form>
         <fieldset>
           <input type="radio" id="radio1" name="typeCheck" checked>
@@ -43,7 +46,7 @@
         </fieldset>
       </form>
       <ul class="typeSelector">
-        <!-- dynamically add li's with types with JS -->
+        <!-- Will have content added using jQuery function multiplierCalculator -->
       </ul>
     </div>
   </main>

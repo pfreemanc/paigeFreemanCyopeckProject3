@@ -389,7 +389,7 @@ pokemonApp.pokemonTypeColors = {
 };
 
 // init function that calls the important functions needed.
-pokemonApp.init = function () {
+pokemonApp.init = function () {0
   pokemonApp.displayCurrentTypes();
   pokemonApp.generateTypes();
   // event listener for when the user selects their type choice.
@@ -415,9 +415,9 @@ pokemonApp.init = function () {
     $("#headingTextChange").text("You Chose....");
     $("h3").empty();
     $("form").empty();
-    // save user selection
     // removing the type class in order to correct retrive the type information
     $(this).removeClass("type");
+    // save user selection
     const selectedClass = $(this).attr("class");
     // emptying the list in order to populate information successfully.
     $(".typeSelector").empty().addClass("listPostChoice");
@@ -430,10 +430,12 @@ pokemonApp.init = function () {
   });
 };
 
+// Generates a start over button that reloads the page.
 pokemonApp.genStartOverBtn = function () {
   const button = $("<button>").addClass("btnStartOver").text("Start Over?");
   $("main .container").append(button);
 };
+
 // function that displays the current supported types that the user can select.
 pokemonApp.displayCurrentTypes = function () {
   for (let type in pokemonApp.pokemonTypes) {
@@ -448,22 +450,21 @@ pokemonApp.generateTypes = function () {
     // creating the list item
     const listItem = $("<li>");
     // button with type grabbing the name
-    // TODO: refactor with generatebutton.
     const button = pokemonApp.createButton(type);
-    // chagning the button to the type colour
+    // Changing the button to the type colour
     listItem.append(button);
     $(".typeSelector").append(listItem);
   }
 };
 
-// function that creates the button. Adds the class with the type that's passed on. Also changes the background colour to use the saved background colours that are in the pokemonTypeColors object
+// function that creates the button. Adds the class with the type that's passed on. Also changes the background colour retrieved from the pokemonTypeColors object.
 pokemonApp.createButton = function (type) {
   const button = $("<button>").addClass(type).addClass("type").text(type);
   $(button).css("background-color", pokemonApp.pokemonTypeColors[type]);
   return button;
 };
 
-// Function that wil call the multiplierCalculator. Also generates the user choice information.
+// Is called early, this generates the userCHoice information and calls the multiplier calculator. 
 pokemonApp.showInfo = function (type) {
   const userChoice = $("<li>").addClass("listUserChoice");
   userChoice.append(pokemonApp.createButton(type));
@@ -480,6 +481,7 @@ pokemonApp.sortList = function () {
   $(".listTypeMultiplier.toRemove").hide();
 };
 
+// Contains all the logic for looping through the objects using the user choice as well as creating and appending things to the list and its own container.
 pokemonApp.multiplierCalculator = function (type, boolean) {
   //create a loop that runs through the type mutlipliers for the selected user type
   for (let multiplier in pokemonApp.pokemonTypes[type]) {
@@ -522,7 +524,7 @@ pokemonApp.multiplierCalculator = function (type, boolean) {
   pokemonApp.sortList();
 };
 
-// Doc ready TODO remove this comment
+// Document ready with the init function being called.
 $(function () {
   pokemonApp.init();
 });
